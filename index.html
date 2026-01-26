@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Gayathri Krishnan — Columbia Student</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --columbia-blue:#C4D8E2;
+            --columbia-navy:#0B3D91;
+            --accent:#2348A6;
+            --muted:#6b7280;
+            --bg:#f7fbfd;
+            --card-bg:#ffffff;
+            --glass: rgba(255,255,255,0.6);
+        }
+        *{box-sizing:border-box}
+        body{
+            margin:0;
+            font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            color:#08304a;
+            background:linear-gradient(180deg, #eef7fb 0%, #ffffff 40%);
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+        }
+
+        /* Hero / background */
+        .hero{
+            position:relative;
+            padding:64px 20px 40px;
+            background:
+                linear-gradient(180deg, rgba(11,61,145,0.08) 0%, rgba(196,216,226,0.04) 100%),
+                url('') center/cover no-repeat;
+            overflow:hidden;
+        }
+        /* watermark removed */
+
+        .container{max-width:1100px;margin:0 auto;}
+        .top{
+            display:flex;
+            gap:20px;
+            align-items:flex-end;
+            justify-content:space-between;
+            margin-bottom:24px;
+        }
+
+        /* Top navigation */
+        .site-nav{
+            display:flex;align-items:center;justify-content:space-between;
+            gap:20px;padding:12px 0;margin-bottom:10px;
+            background:linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.7));
+            border-radius:12px;backdrop-filter: blur(6px);
+            box-shadow:0 4px 18px rgba(11,61,145,0.06);
+        }
+        .site-nav .links{display:flex;gap:14px;align-items:center}
+        .site-nav .links a{color:var(--columbia-navy);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600}
+        .site-nav .links a:hover{background:var(--bg)}
+
+        /* Compact brand on the right inside a white card */
+        .site-nav .brand{display:flex;align-items:center;gap:10px;background:var(--card-bg);padding:6px 10px;border-radius:10px;box-shadow:0 6px 14px rgba(11,61,145,0.06)}
+        .site-nav .brand .logo{width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,var(--columbia-blue),var(--columbia-navy));display:inline-flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px}
+        .site-nav .links{display:flex;gap:12px;align-items:center}
+        .site-nav .links a{color:var(--columbia-navy);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600}
+        .site-nav .links a:hover{background:var(--bg)}
+        .profile{
+            display:flex;
+            gap:18px;
+            align-items:center;
+        }
+        .avatar{
+            width:110px;height:110px;border-radius:14px;
+            background:linear-gradient(135deg,var(--columbia-blue),var(--columbia-navy));
+            display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:20px;
+            box-shadow:0 6px 20px rgba(11,61,145,0.12);
+            flex:0 0 110px;
+        }
+        .avatar img{width:100%;height:100%;object-fit:cover;border-radius:14px;display:block}
+        .meta h1{margin:0;font-size:22px;color:var(--columbia-navy);}
+        .meta p{margin:4px 0 0;color:var(--muted);font-size:14px}
+
+        .cta{display:flex;gap:10px;align-items:center}
+        .btn{
+            background:var(--columbia-navy);
+            color:white;padding:10px 14px;border-radius:10px;border:none;font-weight:600;cursor:pointer;
+            box-shadow:0 6px 18px rgba(11,61,145,0.12);
+        }
+        .ghost{
+            background:transparent;border:1px solid rgba(11,61,145,0.12);padding:8px 12px;border-radius:10px;color:var(--columbia-navy);
+        }
+
+        /* Layout */
+        .grid{
+            display:grid;
+            grid-template-columns: 320px 1fr;
+            gap:22px;
+            margin-top:18px;
+        }
+        .card{
+            background:var(--card-bg);
+            border-radius:12px;
+            padding:18px;
+            box-shadow:0 6px 18px rgba(11,61,145,0.06);
+        }
+        .small{font-size:13px;color:var(--muted)}
+
+        /* Left column */
+        .left .stat{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+        .tag{display:inline-block;background:linear-gradient(90deg,var(--columbia-blue),var(--accent));color:white;padding:6px 10px;border-radius:999px;font-weight:600;font-size:13px}
+
+        .left .links{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+        .links a{display:flex;gap:10px;align-items:center;text-decoration:none;color:var(--columbia-navy);font-weight:600}
+        .muted{color:var(--muted);font-size:14px}
+
+        /* Right column content */
+        h2{font-family:"Merriweather",serif;color:var(--columbia-navy);margin:0 0 10px}
+        .about{line-height:1.6;color:#133047;margin-bottom:14px}
+        .exp{margin-bottom:12px}
+        .exp .role{display:flex;justify-content:space-between;align-items:center}
+        .role .title{font-weight:700;color:#0b3350}
+        .period{color:var(--muted);font-size:13px}
+
+        .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+        .skill{background:var(--bg);padding:6px 10px;border-radius:8px;color:#0b3350;font-weight:600;font-size:13px}
+
+        footer{margin-top:28px;padding:18px;text-align:center;color:var(--muted);font-size:13px}
+
+        /* Responsive */
+        @media(max-width:880px){
+            .grid{grid-template-columns: 1fr; padding-bottom:30px}
+            .hero::after{font-size:64px;right:4%;top:6%}
+            .avatar{width:88px;height:88px}
+        }
+        /* Theme toggle */
+        .theme-toggle{background:transparent;border:1px solid rgba(11,61,145,0.08);padding:8px 10px;border-radius:8px;cursor:pointer;font-size:16px}
+        .theme-toggle[aria-pressed="true"]{background:rgba(11,61,145,0.06)}
+
+        /* Dark theme variables & readable color overrides */
+        [data-theme="dark"]{
+            --columbia-blue:#1b3a5a;
+            --columbia-navy:#d7e7f6; /* lighter for headings/text */
+            --accent:#6EA0FF;
+            --muted:#9aa6b3;
+            --bg:#05121a;
+            --card-bg:#081826;
+            --glass: rgba(2,6,12,0.5);
+        }
+        [data-theme="dark"] body{
+            color:#e6f2ff;
+            background:linear-gradient(180deg,#071428 0%, #071826 60%);
+        }
+        [data-theme="dark"] h2,
+        [data-theme="dark"] .role .title,
+        [data-theme="dark"] .meta h1{color:var(--columbia-navy)}
+        [data-theme="dark"] .muted,
+        [data-theme="dark"] .small,
+        [data-theme="dark"] footer{color:var(--muted)}
+        [data-theme="dark"] .skill{background:rgba(255,255,255,0.04);color:var(--columbia-navy)}
+        [data-theme="dark"] .tag{color:#ffffff}
+        [data-theme="dark"] .site-nav .links a{color:#dff4ff}
+        [data-theme="dark"] .btn{background:var(--accent);color:#042034;box-shadow:0 6px 18px rgba(110,160,255,0.12)}
+        [data-theme="dark"] .ghost{border-color:rgba(255,255,255,0.08);color:var(--columbia-navy);background:transparent}
+        [data-theme="dark"] .site-nav .brand{background:var(--card-bg)}
+        [data-theme="dark"] .logo{color:#fff}
+        [data-theme="dark"] .about{color:#dbeeff}
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="container">
+            <nav class="site-nav" role="navigation" aria-label="Main navigation">
+                <div class="links">
+                    <a href="#">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#experience">Experience</a>
+                    <a href="mailto:ghk2112@columbia.edu" style="padding:8px 12px">Contact</a>
+                </div>
+                <button id="themeToggle" class="theme-toggle" aria-pressed="false" aria-label="Toggle theme">🌙</button>
+                <div class="brand" aria-hidden="true">
+                    <div class="logo">GK</div>
+                </div>
+            </nav>
+            <div class="top">
+                <div class="profile">
+                    <div class="avatar" aria-hidden="true">
+                        <img src="gk23.jpeg" alt="Gayathri Krishnan" />
+                    </div>
+                    <div class="meta">
+                        <h1>Gayathri Krishnan</h1>
+                        <p>Student at Columbia University · MAP 5-Star Scholar · 500+ connections</p>
+                        <p class="small">San Jose, California, United States · 648 followers</p>
+                    </div>
+                </div>
+
+                <div class="cta">
+                    <a href="mailto:ghk2112@columbia.edu" class="btn">Contact</a>
+                    <button class="ghost">Download CV</button>
+                </div>
+            </div>
+
+            <div class="grid">
+                <aside class="left">
+                    <div class="card">
+                        <div class="small">Highlights</div>
+                        <div style="margin-top:10px">
+                            <div class="tag">Worked at Cisco</div>
+                        </div>
+
+                        <hr style="border:none;border-top:1px solid #eef4f7;margin:14px 0">
+
+                        <div class="small">Connections</div>
+                        <div style="font-weight:700;margin:6px 0">500+ connections</div>
+
+                        <div class="links">
+                            <a href="sms:4085109045" title="Message"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="opacity:.9"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="#0B3D91" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg> 408-510-9045</a>
+                            <a href="mailto:ghk2112@columbia.edu" title="Email"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="opacity:.9"><path d="M4 4h16v16H4z" stroke="#0B3D91" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg> ghk2112@columbia.edu</a>
+                        </div>
+                    </div>
+
+                    <div class="card" style="margin-top:16px">
+                        <div class="small">Education</div>
+                        <div style="margin-top:8px">
+                            <div style="font-weight:700">Columbia University</div>
+                            <div class="muted">2023 - 2027 · Economics & Computer Science (declared)</div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="margin-top:16px">
+                        <div class="small">Certifications</div>
+                        <div style="margin-top:8px">
+                            <div style="font-weight:700">Bloomberg Finance Fundamentals</div>
+                            <div class="muted">Issued Feb 2025 · Credential ID 4zrfHYCKNX1iWs8b1krrgGP</div>
+                        </div>
+                    </div>
+                </aside>
+
+                <main>
+                    <section id="about" class="card">
+                        <h2>About</h2>
+                        <div class="about">Passionate about building impactful products at the intersection of technology, business, and social impact. Experienced in software development, operations, and finance with a focus on solving real-world problems.</div>
+                        
+                        <div class="exp" style="margin-top:16px">
+                            <div class="role">
+                                <div>
+                                    <div class="title">Columbia University</div>
+                                    <div class="muted">New York, NY · B.A. in Economics & Computer Science</div>
+                                </div>
+                            </div>
+                            <div class="small" style="margin-top:8px">
+                                GPA: 3.60 • Graduation May 2027<br>
+                                <strong>Honors:</strong> NCAA Division I & ITA Division 1 Scholar-Athlete, Dean's List<br>
+                                <strong>Coursework:</strong> Data Structures, Data Science, Programming and AI, Econometrics, Statistics, Corporate Finance
+                            </div>
+                        </div>
+
+                        <div class="exp" style="margin-top:12px">
+                            <div class="role">
+                                <div>
+                                    <div class="title">Cupertino High School</div>
+                                    <div class="muted">Cupertino, CA · Graduated June 2023</div>
+                                </div>
+                            </div>
+                            <div class="small" style="margin-top:8px">
+                                GPA: 4.12<br>
+                                <strong>Coursework:</strong> AP Statistics, AP Computer Science, AP Microeconomics
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="projects" class="card" style="margin-top:16px">
+                        <h2>Projects</h2>
+
+                        <div class="exp">
+                            <div class="role">
+                                <div>
+                                    <div class="title">Personal Portfolio — This website</div>
+                                    <div class="muted">Built and styled as a responsive static site</div>
+                                </div>
+                                <div class="period">Personal</div>
+                            </div>
+                            <div class="small" style="margin-top:8px">Stack:
+                                <span class="skill" style="margin-left:8px">Python</span>
+                                <span class="skill">HTML</span>
+                                <span class="skill">CSS</span>
+                            </div>
+                        </div>
+                        <div class="exp" style="margin-top:12px">
+                            <div class="role">
+                                <div>
+                                    <div class="title">AI Chatbot — Commerce team — Cisco</div>
+                                    <div class="muted">Built to assist users with product bundle inquiries and routing</div>
+                                </div>
+                                <div class="period">Personal</div>
+                            </div>
+                            <div class="small" style="margin-top:8px">Stack:
+                                <span class="skill" style="margin-left:8px">Java</span>
+                                <span class="skill">JavaScript</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="experience" class="card" style="margin-top:16px">
+                        <h2>Experience</h2>
+
+                        <div class="exp">
+                            <div class="role">
+                                <div>
+                                    <div class="title">Cisco – Software Intern</div>
+                                    <div class="muted">Durham, NC · Jun – Aug 2025</div>
+                                </div>
+                            </div>
+                            <div class="small" style="margin-top:8px">
+                                • Developed AI Chatbot for Commerce IT systems improving user experience<br>
+                                • Integrated NLP-based models for operational workflows
+                            </div>
+                        </div>
+
+                        <div class="exp" style="margin-top:12px">
+                            <div class="role">
+                                <div>
+                                    <div class="title">Goldman Sachs – AP AC Traders Academy</div>
+                                    <div class="muted">Mapletree Anson, Singapore · May 2025</div>
+                                </div>
+                            </div>
+                            <div class="small" style="margin-top:8px">
+                                • Participated in Trading Insight Program with trading floor tours and market training<br>
+                                • Completed market-making competition and trading strategy presentation
+                            </div>
+                        </div>
+
+                        <div class="exp" style="margin-top:12px">
+                            <div class="role">
+                                <div>
+                                    <div class="title">UBS – Student Analyst</div>
+                                    <div class="muted">New York, NY · Feb 2025</div>
+                                </div>
+                            </div>
+                            <div class="small" style="margin-top:8px">
+                                • Developed business plan for MAP 2025 Women Playmakers program<br>
+                                • Engaged with women entrepreneurs and investors on funding challenges
+                            </div>
+                        </div>
+
+                        <div class="exp" style="margin-top:12px">
+                            <div class="role">
+                                <div>
+                                    <div class="title">Cisco – Operations & Program Management Intern</div>
+                                    <div class="muted">San Jose, CA · May – Aug 2024</div>
+                                </div>
+                            </div>
+                            <div class="small" style="margin-top:8px">
+                                • Developed Python scripts to automate hardware project data analysis<br>
+                                • Developed code to screen ASIC based on test outcomes<br>
+                                • Tracked project progress and resource allocation in Excel
+                            </div>
+                        </div>
+
+                        <div class="exp" style="margin-top:12px">
+                            <div class="role">
+                                <div>
+                                    <div class="title">Global Brigades – Volunteer Consultant</div>
+                                    <div class="muted">Cupertino, CA</div>
+                                </div>
+                            </div>
+                            <div class="small" style="margin-top:8px">
+                                • Assisted entrepreneur in Honduras with food business creation<br>
+                                • Gathered data to provide local entrepreneurs with business insights
+                            </div>
+                        </div>
+
+                        <div class="exp" style="margin-top:12px">
+                            <div class="role">
+                                <div>
+                                    <div class="title">UNICEF – Columbia UNICEF</div>
+                                    <div class="muted">Sep 2024 - Jan 2026</div>
+                                </div>
+                                <div class="period">Volunteer / Student Org</div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top:12px" class="small">Selected: MAP 5-Star Freshman Scholar '23 – Make A Play Foundation</div>
+                    </section>
+
+                    <section class="card" style="margin-top:16px">
+                        <h2>Skills & Interests</h2>
+                        <div class="skills">
+                            <div class="skill">Python</div>
+                            <div class="skill">Java</div>
+                            <div class="skill">Machine Learning</div>
+                            <div class="skill">AI / NLP</div>
+                            <div class="skill">Product & Operations</div>
+                            <div class="skill">Tennis</div>
+                            <div class="skill">Consulting</div>
+                            <div class="skill">Finance</div>
+                        </div>
+                    </section>
+
+                    <footer>
+                        Built with a Columbia color palette • Gayathri Krishnan — Student at Columbia University
+                    </footer>
+                </main>
+            </div>
+        </div>
+    </header>
+    <script>
+        (function(){
+            const btn = document.getElementById('themeToggle');
+            const root = document.documentElement;
+            function setTheme(t){
+                if(t === 'dark'){
+                    root.setAttribute('data-theme','dark');
+                    btn.textContent = '☀️';
+                    btn.setAttribute('aria-pressed','true');
+                } else {
+                    root.removeAttribute('data-theme');
+                    btn.textContent = '🌙';
+                    btn.setAttribute('aria-pressed','false');
+                }
+                try{ localStorage.theme = t }catch(e){}
+            }
+            const stored = (function(){ try{ return localStorage.theme }catch(e){return null} })();
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            setTheme(stored || (prefersDark ? 'dark' : 'light'));
+            btn.addEventListener('click', function(){
+                const isDark = root.getAttribute('data-theme') === 'dark';
+                setTheme(isDark ? 'light' : 'dark');
+            });
+        })();
+    </script>
+</body>
+</html>
